@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import ThreeScene from './ThreeScene';
 import './Hero.css';
 
 const Hero = () => {
@@ -24,7 +25,7 @@ const Hero = () => {
     return (
         <section className="hero-section" ref={containerRef}>
             <motion.div className="hero-bg" style={{ y, opacity }}>
-                <img src="/images/hero.png" alt="Abstract Background" />
+                <ThreeScene />
                 <div className="noise-overlay"></div>
             </motion.div>
 
