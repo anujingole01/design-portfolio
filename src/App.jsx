@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <>
+      <Preloader />
       <CustomCursor />
       <Navigation />
 

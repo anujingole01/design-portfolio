@@ -1,0 +1,34 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--accent-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.count {
+    font-family: 'Syne', sans-serif;
+    font-size: 10vw;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.loader-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-size: 1rem;
+}
