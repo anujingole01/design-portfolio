@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './ProjectGallery.css';
 
 const projects = [
@@ -31,7 +30,13 @@ const projects = [
 
 const ProjectCard = ({ project }) => {
     return (
-        <div className="project-card">
+        <motion.div
+            className="project-card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-10%" }}
+        >
             <div className="image-container">
                 <motion.img
                     src={project.img}
@@ -44,25 +49,16 @@ const ProjectCard = ({ project }) => {
                     <span>{project.category}</span>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
 const ProjectGallery = () => {
-    const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-    });
-
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
-
     return (
-        <section ref={targetRef} className="gallery-section-wrapper">
-            <div className="sticky-container">
-                <h2 className="section-title">SELECTED WORK</h2>
-                <motion.div className="horizontal-gallery" style={{ x }}>
-                    {projects.map(p => <ProjectCard key={p.id} project={p} />)}
-                </motion.div>
+        <section className="gallery-section" id="work">
+            <h2 className="section-title">Selected Work</h2>
+            <div className="gallery-grid">
+                {projects.map(p => <ProjectCard key={p.id} project={p} />)}
             </div>
         </section>
     );
