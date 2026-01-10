@@ -1,0 +1,137 @@
+.services-section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 15vh 5vw;
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header Grid */
+.services-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin-bottom: 8rem;
+}
+
+@media (min-width: 992px) {
+    .services-header {
+        grid-template-columns: 0.4fr 0.6fr;
+        gap: 8rem;
+    }
+}
+
+.section-tag {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+.header-left h2 {
+    font-size: clamp(2rem, 3vw, 3rem);
+    margin-bottom: 1.5rem;
+}
+
+.header-right h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.header-desc {
+    opacity: 0.6;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* Stats */
+.stats-container {
+    display: flex;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.2;
+}
+
+
+/* Cards Grid */
+.services-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #2a3245;
+    /* Dark Card style */
+    padding: 3rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.service-card.active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    /* Dark text on yellow card */
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon {
+    margin-bottom: 2rem;
+}
+
+.icon-shape {
+    width: 60px;
+    height: 60px;
+    border: 2px solid currentColor;
+    opacity: 0.8;
+}
+
+.service-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card span {
+    font-family: 'Inter', sans-serif;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Specific styling for active card text if needed */
+.service-card.active h4,
+.service-card.active span {
+    color: #000;
+}

@@ -1,71 +1,130 @@
-.gallery-section {
-    padding: 10vh 4vw;
+.portfolio-section {
     background-color: var(--bg-color);
-}
-
-.section-title {
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 4rem;
     color: var(--text-color);
-    text-align: center;
+    padding: 10vh 5vw;
 }
 
-.gallery-container {
+.portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (min-width: 992px) {
+    .portfolio-container {
+        grid-template-columns: 0.4fr 0.6fr;
+        /* Split layout */
+        gap: 6rem;
+    }
+}
+
+/* Left Column - Sticky */
+.portfolio-left {
+    position: relative;
+}
+
+.sticky-content {
+    position: sticky;
+    top: 20vh;
+}
+
+.portfolio-left h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.portfolio-desc {
+    opacity: 0.6;
+    margin-bottom: 3rem;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.explore-link {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 235, 59, 0.3);
+    text-underline-offset: 8px;
+    transition: all 0.3s ease;
+}
+
+.explore-link:hover {
+    text-decoration-color: var(--accent-color);
+}
+
+
+/* Right Column - Project List */
+.portfolio-right {
     display: flex;
     flex-direction: column;
     gap: 6rem;
+    /* Spacing between projects */
 }
 
-.project-category {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.project-item {
+    width: 100%;
 }
 
-.category-title {
-    font-size: 1.5rem;
+.project-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    /* Portrait aspect like reference */
+    background: #1a1f2e;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: transform 0.5s ease;
+}
+
+.project-image-placeholder:hover {
+    transform: scale(0.98);
+}
+
+.project-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 1;
+}
+
+/* Simulate Reference Content inside placeholder */
+.project-content-overlay {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    z-index: 2;
+}
+
+.project-content-overlay h3 {
     font-family: 'Syne', sans-serif;
-    color: var(--accent-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.placeholder-card {
-    background-color: var(--card-bg);
-    aspect-ratio: 1;
-    /* Square for Insta/Design posts usually works well */
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.placeholder-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-}
-
-.placeholder-content {
-    color: var(--text-color);
-    opacity: 0.5;
-    font-size: 0.9rem;
+.project-content-overlay span {
+    opacity: 0.7;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
 }
 
-/* Specific aspect ratios for different categories if needed */
-#stories .placeholder-card {
-    aspect-ratio: 9/16;
+
+/* Colors for variety (simulating images) */
+.project-1 {
+    background: #232836;
 }
 
-#product .placeholder-card {
-    aspect-ratio: 4/3;
+.project-2 {
+    background: #1e2330;
+}
+
+.project-3 {
+    background: #181d29;
 }
