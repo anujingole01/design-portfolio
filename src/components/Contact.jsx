@@ -16,7 +16,7 @@ const Contact = () => {
                     >
                         <h2>Got a project?<br />Let's talk.</h2>
                         <p className="contact-desc">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                            Ready to start your next groundbreaking project? I'm currently available for freelance work and open to new opportunities.
                         </p>
 
                         <a href="mailto:hi@anujingole.com" className="email-link">
@@ -80,7 +80,7 @@ const Contact = () => {
                     </div>
                 </motion.footer>
             </div>
-        </section>
+        </section >
     );
 };
 

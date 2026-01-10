@@ -33,7 +33,7 @@ const ProjectGallery = () => {
                         <span className="section-tag">— Portfolio</span>
                         <h2>All Creative Works,<br />Selected projects.</h2>
                         <p className="portfolio-desc">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                            A curated selection of my work in branding, product design, and digital experiences. Each project represents a unique challenge and a creative solution.
                         </p>
 
                         <a href="#" className="explore-link">
@@ -64,7 +64,7 @@ const ProjectGallery = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

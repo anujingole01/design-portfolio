@@ -32,7 +32,7 @@ const Services = () => {
                         <span className="section-tag">— Contact</span>
                         <h2>Any Type Of Query<br />& Discussion.</h2>
                         <p className="header-desc">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                            Collaborate with me to create seamless, user-centric digital experiences that drive results.
                         </p>
                         <a href="mailto:hi@anujingole.com" className="email-link">
                             hi@anujingole.com <span className="arrow">→</span>
@@ -42,7 +42,7 @@ const Services = () => {
                     <div className="header-right">
                         <h3>You can't use up creativity,<br />the more you use, more you have<br />in your signifant mind.</h3>
                         <p className="header-desc">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+                            Creativity is an infinite resource. I leverage years of design expertise to bring unique visions to life, tailored to your brand's specific needs.
                         </p>
 
                         <div className="stats-container">
