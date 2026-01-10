@@ -67,64 +67,108 @@
     /* Spacing between projects */
 }
 
+/* Creative Project Items */
 .project-item {
     width: 100%;
+    cursor: pointer;
 }
 
 .project-image-placeholder {
     width: 100%;
     aspect-ratio: 4/5;
-    /* Portrait aspect like reference */
     background: #1a1f2e;
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
-    transition: transform 0.5s ease;
+    border-radius: 12px;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .project-image-placeholder:hover {
     transform: scale(0.98);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
+/* Dynamic Gradient Overlay */
 .project-image-placeholder::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
     z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
 }
 
-/* Simulate Reference Content inside placeholder */
+.project-image-placeholder:hover::before {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+}
+
+/* Content Motion */
 .project-content-overlay {
     position: absolute;
     bottom: 3rem;
     left: 3rem;
     z-index: 2;
+    transform: translateY(10px);
+    transition: transform 0.5s ease;
+}
+
+.project-image-placeholder:hover .project-content-overlay {
+    transform: translateY(0);
 }
 
 .project-content-overlay h3 {
     font-family: 'Syne', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #fff, #999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: letter-spacing 0.5s ease;
+}
+
+.project-image-placeholder:hover .project-content-overlay h3 {
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .project-content-overlay span {
     opacity: 0.7;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     font-size: 0.9rem;
+    display: inline-block;
+    position: relative;
+}
+
+.project-content-overlay span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 0.4s ease;
+}
+
+.project-image-placeholder:hover .project-content-overlay span::after {
+    width: 100%;
 }
 
 
-/* Colors for variety (simulating images) */
+/* Abstract Background Shapes for Placeholders */
 .project-1 {
-    background: #232836;
+    background: radial-gradient(circle at 20% 50%, #232836, #0a0f18);
 }
 
 .project-2 {
-    background: #1e2330;
+    background: radial-gradient(circle at 80% 20%, #1e2330, #0a0f18);
 }
 
 .project-3 {
-    background: #181d29;
+    background: radial-gradient(circle at 50% 80%, #181d29, #0a0f18);
 }
