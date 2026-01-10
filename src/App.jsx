@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import Preloader from './components/Preloader';
-import CustomCursor from './components/CustomCursor';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import ProjectGallery from './components/ProjectGallery';
 import './App.css';
+
+import Contact from './components/Contact';
+import Testimonials from './components/Testimonials';
 
 function App() {
   useEffect(() => {
@@ -34,37 +35,15 @@ function App() {
 
   return (
     <>
-      <Preloader />
-      <CustomCursor />
       <Navigation />
 
       <main>
         <Hero />
         <ProjectGallery />
+        <Testimonials />
+        <Contact />
 
-        <section id="about" className="about-section">
-          <div className="container">
-            <h2 className="display-font">ABOUT ME</h2>
-            <p className="bio">
-              I am a digital artisan based in Mumbai. I craft immersive digital experiences that blur the line between art and function.
-              Specializing in brand identity, kinetic typography, and creative direction.
-            </p>
-          </div>
-        </section>
 
-        <footer>
-          <div className="footer-content">
-            <h2 className="display-font">LET'S TALK</h2>
-            <div className="contact-links">
-              <a href="mailto:contact@anujingole.com">EMAIL</a>
-              <a href="#">INSTAGRAM</a>
-              <a href="#">BEHANCE</a>
-            </div>
-            <div className="copy">
-              &copy; 2026 ANUJ INGOLE
-            </div>
-          </div>
-        </footer>
       </main>
     </>
   );

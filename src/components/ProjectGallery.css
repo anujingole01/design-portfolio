@@ -1,5 +1,5 @@
 .gallery-section {
-    padding: 15vh 4vw;
+    padding: 10vh 4vw;
     background-color: var(--bg-color);
 }
 
@@ -7,67 +7,65 @@
     font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 4rem;
     color: var(--text-color);
+    text-align: center;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.project-category {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
-@media (min-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 4vw;
-    }
-}
-
-.project-card {
-    width: 100%;
-}
-
-.image-container {
-    width: 100%;
-    aspect-ratio: 4/5;
-    overflow: hidden;
-    position: relative;
-    border-radius: 2px;
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: white;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-}
-
-.image-container:hover .overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.overlay h3 {
+.category-title {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-family: 'Syne', sans-serif;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
-.overlay span {
-    color: var(--accent-color);
-    font-family: 'Inter', sans-serif;
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.placeholder-card {
+    background-color: var(--card-bg);
+    aspect-ratio: 1;
+    /* Square for Insta/Design posts usually works well */
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.placeholder-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.placeholder-content {
+    color: var(--text-color);
+    opacity: 0.5;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    font-size: 0.8rem;
     letter-spacing: 0.1em;
+}
+
+/* Specific aspect ratios for different categories if needed */
+#stories .placeholder-card {
+    aspect-ratio: 9/16;
+}
+
+#product .placeholder-card {
+    aspect-ratio: 4/3;
 }

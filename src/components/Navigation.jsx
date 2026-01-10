@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navigation.css';
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [theme, setTheme] = useState('dark');
+
+    useEffect(() => {
+        document.body.className = theme === 'light' ? 'light-mode' : '';
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    };
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -33,8 +42,13 @@ const Navigation = () => {
         <header>
             <div className="nav-header">
                 <div className="logo">ANUJ INGOLE</div>
-                <div className="menu-toggle" onClick={toggleMenu}>
-                    {isOpen ? 'CLOSE' : 'MENU'}
+                <div className="nav-controls">
+                    <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+                        {theme === 'dark' ? '☀' : '☾'}
+                    </button>
+                    <div className="menu-toggle" onClick={toggleMenu}>
+                        {isOpen ? 'CLOSE' : 'MENU'}
+                    </div>
                 </div>
             </div>
 
@@ -55,9 +69,13 @@ const Navigation = () => {
                                 animate="open"
                                 exit="initial"
                             >
-                                {['Work', 'About', 'Services', 'Contact'].map((link, index) => (
+                                {['Work', 'About', 'Contact'].map((link, index) => (
                                     <div className="overflow-hidden" key={index}>
-                                        <motion.div variants={linkVars}>
+                                        <motion.div
+                                            variants={linkVars}
+                                            whileHover={{ x: 10, skewX: -5 }} // Simple magnetic/lean effect
+                                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                        >
                                             <a href={`#${link.toLowerCase()}`} onClick={toggleMenu} className="menu-link">{link}</a>
                                         </motion.div>
                                     </div>

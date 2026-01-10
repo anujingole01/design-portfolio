@@ -1,0 +1,135 @@
+.testimonials-section {
+    background-color: var(--bg-color);
+    /* Same dark bg */
+    /* Slightly lighter or same bg? Reference looks like same dark bg */
+    padding: 10vh 5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .testimonial-content {
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 6rem;
+    }
+}
+
+/* Left: Image */
+.testimonial-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1/1;
+    /* Square photo as per reference or slight portrait */
+    margin: 0 auto;
+}
+
+.testimonial-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #1a1f2e;
+    /* Dark placeholder base */
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    /* Slight roundness or sharp as per reference? Reference looks sharp/minimal */
+}
+
+/* Simulate a photo */
+.testimonial-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.4));
+}
+
+.placeholder-texture {
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232a3245' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /* Subtle pattern */
+}
+
+
+/* Right: Text */
+.testimonial-text-wrapper {
+    color: var(--text-color);
+    position: relative;
+}
+
+.quote-icon {
+    font-family: 'Syne', serif;
+    /* or a serif font */
+    font-size: 8rem;
+    line-height: 0.5;
+    color: #2a3245;
+    /* Dark gray/navy accent */
+    margin-bottom: 2rem;
+    opacity: 0.5;
+}
+
+.quote-container {
+    min-height: 200px;
+    /* Prevent layout jump */
+}
+
+.quote-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.author-info h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--text-color);
+}
+
+.author-info span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* Dots */
+.testimonial-dots {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.dot {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 2px;
+}
+
+.dot.active {
+    background: var(--accent-color);
+    /* Yellow accent */
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

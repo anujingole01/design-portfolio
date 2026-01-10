@@ -1,55 +1,40 @@
 import { motion } from 'framer-motion';
 import './ProjectGallery.css';
 
-const projects = [
-    {
-        id: 1,
-        title: "Aurum Atelier",
-        category: "Branding",
-        img: "/images/project1.png"
-    },
-    {
-        id: 2,
-        title: "Cyber Pulse",
-        category: "Art Direction",
-        img: "/images/project2.png"
-    },
-    {
-        id: 3,
-        title: "Neo Renascence",
-        category: "Print",
-        img: "/images/project3.png"
-    },
-    {
-        id: 4,
-        title: "Future Flux",
-        category: "UI/UX",
-        img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop"
-    }
+
+const categories = [
+    { title: "Instagram Posts", id: "insta" },
+    { title: "My Designs", id: "designs" },
+    { title: "Stories", id: "stories" },
+    { title: "Product Design", id: "product" }
 ];
 
-const ProjectCard = ({ project }) => {
+const PlaceholderCard = () => {
     return (
         <motion.div
-            className="project-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-10%" }}
+            className="placeholder-card"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
         >
-            <div className="image-container">
-                <motion.img
-                    src={project.img}
-                    alt={project.title}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
-                />
-                <div className="overlay">
-                    <h3>{project.title}</h3>
-                    <span>{project.category}</span>
-                </div>
+            <div className="placeholder-content">
+                <span>Coming Soon</span>
             </div>
         </motion.div>
+    )
+}
+
+const ProjectSection = ({ title, id }) => {
+    return (
+        <div className="project-category" id={id}>
+            <h3 className="category-title">{title}</h3>
+            <div className="category-grid">
+                {/* 4 Placeholders for each category */}
+                {[1, 2, 3, 4].map(i => (
+                    <PlaceholderCard key={i} />
+                ))}
+            </div>
+        </div>
     );
 };
 
@@ -57,8 +42,10 @@ const ProjectGallery = () => {
     return (
         <section className="gallery-section" id="work">
             <h2 className="section-title">Selected Work</h2>
-            <div className="gallery-grid">
-                {projects.map(p => <ProjectCard key={p.id} project={p} />)}
+            <div className="gallery-container">
+                {categories.map(cat => (
+                    <ProjectSection key={cat.id} title={cat.title} id={cat.id} />
+                ))}
             </div>
         </section>
     );
