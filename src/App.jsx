@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Services from './components/Services';
 import ProjectGallery from './components/ProjectGallery';
+import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
 import './App.css';
 
-import Contact from './components/Contact';
-import Testimonials from './components/Testimonials';
-
 function App() {
+  const lenisRef = useRef()
+
   useEffect(() => {
+    // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -19,19 +22,21 @@ function App() {
       mouseMultiplier: 1,
       smoothTouch: false,
       touchMultiplier: 2,
-    });
+    })
+
+    lenisRef.current = lenis
 
     function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      lenis.raf(time)
+      requestAnimationFrame(raf)
     }
 
-    requestAnimationFrame(raf);
+    requestAnimationFrame(raf)
 
     return () => {
-      lenis.destroy();
-    };
-  }, []);
+      lenis.destroy()
+    }
+  }, [])
 
   return (
     <>
@@ -39,14 +44,13 @@ function App() {
 
       <main>
         <Hero />
+        <Services />
         <ProjectGallery />
         <Testimonials />
         <Contact />
-
-
       </main>
     </>
-  );
+  )
 }
 
 export default App;
