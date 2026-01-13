@@ -44,24 +44,34 @@ const ProjectGallery = () => {
 
                 {/* Right Column: Project List */}
                 <div className="portfolio-right">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            className="project-item"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ margin: "-10%" }}
-                        >
-                            <div className={`project-image-placeholder ${project.class}`}>
-                                <div className="overlay"></div>
-                                <div className="project-content-overlay">
-                                    <h3>{project.title}</h3>
-                                    <span>{project.category}</span>
+                    {projects.map((project, index) => {
+                        const ref = useRef(null);
+                        const { scrollYProgress } = useScroll({
+                            target: ref,
+                            offset: ["start end", "end start"]
+                        });
+
+                        const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+                        const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
+                        const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.6, 1, 1, 0.6]);
+
+                        return (
+                            <motion.div
+                                key={index}
+                                ref={ref}
+                                className="project-item"
+                                style={{ y, scale, opacity }}
+                            >
+                                <div className={`project-image-placeholder ${project.class}`}>
+                                    <div className="overlay"></div>
+                                    <div className="project-content-overlay">
+                                        <h3>{project.title}</h3>
+                                        <span>{project.category}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section >

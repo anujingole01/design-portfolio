@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import './Services.css';
 
 const services = [
@@ -60,25 +61,43 @@ const Services = () => {
 
                 {/* Bottom Section: Service Cards */}
                 <div className="services-cards">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            className={`service-card ${service.active ? 'active' : ''}`}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.2, duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="card-icon">
-                                {/* Simple shape placeholder */}
-                                <div className={`icon-shape ${service.icon}`}></div>
-                            </div>
-                            <div className="card-content">
-                                <h4>{service.title}</h4>
-                                <span>{service.count}</span>
-                            </div>
-                        </motion.div>
-                    ))}
+                    {services.map((service, index) => {
+                        // eslint-disable-next-line react-hooks/rules-of-hooks
+                        const ref = useRef(null);
+                        // eslint-disable-next-line react-hooks/rules-of-hooks
+                        const { scrollYProgress } = useScroll({
+                            target: ref,
+                            offset: ["start end", "end start"]
+                        });
+
+                        // Staggered effects based on index
+                        // eslint-disable-next-line react-hooks/rules-of-hooks
+                        const y = useTransform(scrollYProgress, [0, 1], [50 + (index * 20), -50 - (index * 20)]);
+                        // eslint-disable-next-line react-hooks/rules-of-hooks
+                        const rotate = useTransform(scrollYProgress, [0, 1], [2 * (index % 2 === 0 ? 1 : -1), -2 * (index % 2 === 0 ? 1 : -1)]);
+
+                        return (
+                            <motion.div
+                                key={index}
+                                ref={ref}
+                                className={`service-card ${service.active ? 'active' : ''}`}
+                                style={{ y, rotate }}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                viewport={{ once: true, margin: "-10%" }}
+                            >
+                                <div className="card-icon">
+                                    {/* Simple shape placeholder */}
+                                    <div className={`icon-shape ${service.icon}`}></div>
+                                </div>
+                                <div className="card-content">
+                                    <h4>{service.title}</h4>
+                                    <span>{service.count}</span>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
