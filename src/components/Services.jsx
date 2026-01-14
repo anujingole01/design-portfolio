@@ -1,8 +1,11 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '../constants';
 import './Services.css';
 
 const Services = () => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
     return (
         <section className="services-section">
             <div className="services-container">
@@ -13,7 +16,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        — What I Do
+                        — Capabilities
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 30 }}
@@ -23,36 +26,45 @@ const Services = () => {
                     >
                         Design Scope & Deliverables
                     </motion.h2>
-                    <motion.p
-                        className="services-intro"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        I design and execute end-to-end creative solutions, delivering creative, clean, and impactful designs.
-                    </motion.p>
                 </div>
 
-                <div className="services-grid">
+                <div className="services-list">
                     {SERVICES.map((service, index) => (
                         <motion.div
                             key={index}
-                            className="service-card-expanded"
-                            initial={{ opacity: 0, y: 50 }}
+                            className="service-item"
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ y: -10 }}
+                            transition={{ delay: index * 0.1 }}
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
                         >
-                            <div className="service-number">0{index + 1}</div>
-                            <h3>{service.title}</h3>
-                            <p className="service-desc">{service.description}</p>
-                            <ul className="service-list">
-                                {service.items.map((item, idx) => (
-                                    <li key={idx}>{item}</li>
-                                ))}
-                            </ul>
+                            <div className="service-header">
+                                <span className="service-index">0{index + 1}</span>
+                                <h3 className="service-title">{service.title}</h3>
+                                <span className="service-arrow">→</span>
+                            </div>
+
+                            <AnimatePresence>
+                                {hoveredIndex === index && (
+                                    <motion.div
+                                        className="service-details"
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: 'auto', opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <p className="service-desc">{service.description}</p>
+                                        <ul className="service-tags">
+                                            {service.items.map((item, i) => (
+                                                <li key={i}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                            <div className="service-divider"></div>
                         </motion.div>
                     ))}
                 </div>
