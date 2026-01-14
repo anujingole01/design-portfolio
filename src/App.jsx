@@ -3,6 +3,8 @@ import Lenis from 'lenis';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Process from './components/Process';
+import Tools from './components/Tools';
 import ProjectGallery from './components/ProjectGallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -45,6 +47,8 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <Process />
+        <Tools />
         <ProjectGallery />
         <Testimonials />
         <Contact />

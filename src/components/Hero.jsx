@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { ROLE_AND_EXPERTISE } from '../constants';
 import './Hero.css';
 
 const Hero = () => {
@@ -47,12 +48,21 @@ const Hero = () => {
                         >
                             Anuj Ingole
                         </motion.h1>
+                        <motion.h3
+                            className="hero-role"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.7 }}
+                            style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--accent-color)' }}
+                        >
+                            {ROLE_AND_EXPERTISE.role}
+                        </motion.h3>
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
                         >
-                            Digital Designer & Art Director
+                            {ROLE_AND_EXPERTISE.title}
                         </motion.p>
                     </div>
                 </motion.div>
