@@ -7,63 +7,53 @@ export const ROLE_AND_EXPERTISE = {
 
 export const SERVICES = [
     {
-        title: "Brand & Identity Design",
-        description: "Creating visually compelling and brand-aligned identities.",
+        title: "Visual Identity",
+        description: "Crafting the soul of brands through logo systems, typography, and color psychology.",
         items: [
-            "Logo design (minimal, modern, luxury, corporate)",
-            "Brand identity systems (color, typography, visual language)",
-            "Brand guidelines and brand books",
-            "Rebranding and refresh projects"
+            "Logo Design",
+            "Visual Language Systems",
+            "Brand Books",
+            "Identity Rebranding"
         ]
     },
     {
-        title: "Digital & Social Media",
-        description: "Engaging visuals for all digital platforms.",
+        title: "Social Aesthetics",
+        description: "Curating visually stunning digital presences that captivate and engage audiences.",
         items: [
-            "Instagram, Facebook, LinkedIn, YouTube posts",
-            "Carousels, stories, reels thumbnails",
-            "Social media campaign visuals",
-            "Influencer & promotional creatives"
+            "Instagram & LinkedIn Visuals",
+            "Motion Graphics & Reels",
+            "Campaign Storytelling",
+            "Influencer Creative Kits"
         ]
     },
     {
-        title: "Marketing & Advertising",
-        description: "Conversion-focused designs for campaigns.",
+        title: "Campaign Direction",
+        description: "Strategic visual narratives for high-impact marketing and advertising campaigns.",
         items: [
-            "Digital ads (Google, Meta, Display)",
-            "Promotional product & service creatives",
-            "Marketing campaign posters",
-            "Sales, offer, and festival creatives"
+            "Digital Ad Creatives",
+            "Event Visuals",
+            "Product Launch Campaigns",
+            "Sales & Festival Art"
         ]
     },
     {
-        title: "Print Design",
-        description: "High-resolution, print-ready collateral.",
+        title: "Print & Tactile",
+        description: "Designing physical touchpoints that leave a lasting impression in the real world.",
         items: [
-            "Posters, flyers, brochures, pamphlets",
-            "Banners, hoardings, standees",
-            "Business cards, letterheads, envelopes",
-            "Packaging labels"
+            "Editorial Design",
+            "Large Format Displays",
+            "Premium Stationery",
+            "Packaging Experience"
         ]
     },
     {
-        title: "Product & Packaging",
-        description: " tangible brand tactile experiences.",
+        title: "Digital Interface",
+        description: "Blending form and function to create seamless, beautiful web and app experiences.",
         items: [
-            "Product mockups & presentations",
-            "Packaging design (boxes, bottles, pouches)",
-            "E-commerce product images",
-            "Amazon/Flipkart A+ content"
-        ]
-    },
-    {
-        title: "UI / Visual Assets",
-        description: "Digital assets for web and apps.",
-        items: [
-            "Website banners & landing page visuals",
-            "App UI graphics & marketing screens",
-            "Icons, illustrations, custom assets",
-            "Pitch decks & corporate presentations"
+            "Landing Page Visuals",
+            "UI Graphics",
+            "Iconography Sets",
+            "Presentation Design"
         ]
     }
 ];
@@ -92,9 +82,12 @@ export const PROCESS = [
 ];
 
 export const TOOLS = [
-    { name: "Adobe Photoshop", type: "Editing" },
-    { name: "Adobe Illustrator", type: "Vector" },
-    { name: "Adobe InDesign", type: "Layout" },
-    { name: "Figma", type: "UI/Web" },
-    { name: "Canva", type: "Quick Design" }
+    { name: "Photoshop", logo: "https://www.vectorlogo.zone/logos/adobe_photoshop/adobe_photoshop-icon.svg" },
+    { name: "Illustrator", logo: "https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" },
+    { name: "Figma", logo: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg" },
+    { name: "Canva", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/600px-Canva_icon_2021.svg.png" },
+    { name: "InDesign", logo: "https://www.vectorlogo.zone/logos/adobe_indesign/adobe_indesign-icon.svg" },
+    { name: "After Effects", logo: "https://www.vectorlogo.zone/logos/adobe_after_effects/adobe_after_effects-icon.svg" },
+    { name: "Premiere Pro", logo: "https://www.vectorlogo.zone/logos/adobe_premiere/adobe_premiere-icon.svg" },
+    { name: "XD", logo: "https://www.vectorlogo.zone/logos/adobe_xd/adobe_xd-icon.svg" }
 ];
