@@ -1,7 +1,8 @@
 # React + Vite
 
 This is my graphic design portfolio which is under development.
-Only graphic design
+Only graphic design portfolio.
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
